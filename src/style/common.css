@@ -87,10 +87,16 @@
   .Login_And_Register_Page_Right_container {
     width: 100%;
   }
+  .Login_And_Register_Page_Right_container {
+    padding: 4rem 6rem;
+  }
 }
 @media only screen and (max-width: 550px) {
   .Login_Register_Top_container_Heading_Title {
     max-width: 80%;
+  }
+  .Login_And_Register_Page_Right_container {
+    padding: 4rem 4rem;
   }
 }
 @media only screen and (max-width: 380px) {

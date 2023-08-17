@@ -16,4 +16,5 @@ export const Icon = {
   UPArrow_Logo: require("../Assets/Icon/Up.svg").default,
   DownArrow_Logo: require("../Assets/Icon/Down.svg").default,
   BlankWhite: require("../Assets/Icon/BlankWhite.png"),
+  FavIcon: require("../Assets/Icon/FavIcon.png"),
 };
