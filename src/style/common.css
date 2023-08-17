@@ -71,7 +71,7 @@
 .Input_Login_Register_Data {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
 }
 .Input_Div {
