@@ -1,0 +1,36 @@
+.Delete_User_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Delete_user_Main {
+  margin-top: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.Add_User_Icon {
+  width: 15rem;
+  height: 15rem;
+  cursor: pointer;
+}
+.Delete_User_AgreeMent_And_Name {
+  font-size: 2.5rem;
+  line-height: 4rem;
+  font-family: "Mulish-Regular";
+  text-align: left;
+}
+span {
+  font-size: 2.5rem;
+  line-height: 4rem;
+  font-family: "Mulish-Bold";
+  font-weight: bold;
+  color: black;
+}
+.Update_User_Input_Choose_User_Profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

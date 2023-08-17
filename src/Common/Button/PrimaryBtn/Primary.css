@@ -1,0 +1,54 @@
+.Primary_Button_Container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.Button_and_Text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.LOgRegButton {
+  /* width: 76rem; */
+  height: 7rem;
+  width: 100%;
+  /* background-color: var(--primary-blue); */
+  background-color: #1492e6;
+  border-radius: 1.2rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 2.2rem 0rem;
+  height: 7rem;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LOgRegButton:hover {
+  background-color: #1381c9;
+}
+/* **************MEDIA************* */
+
+@media only screen and (max-width: 1200px) {
+  .LOgRegButton {
+    font-size: 1.7rem;
+    height: 6.5rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .LOgRegButton {
+    font-size: 1.5444rem;
+    height: 6rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .LOgRegButton {
+    font-size: 1.4rem;
+    /* width: 95%; */
+  }
+}

@@ -1,0 +1,14 @@
+.Home_Page_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+}
+.Home_Page_Left_Container {
+  width: 50%;
+
+}
+.Home_Page_Right_Container {
+  width: 50%;
+}

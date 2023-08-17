@@ -1,0 +1,92 @@
+.User_Input_Tag_Common {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 1.5rem; */
+  /* width: 100%; */
+  /* border: 1px solid rgb(115, 220, 9); */
+}
+.Input_Img_Get_Box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  background-color: white;
+  border-radius: 1.2rem;
+  padding: 0 1.5rem 0 1.5rem;
+}
+.Input_Img_Get_Box_focused {
+  border: 2px solid #1492e6;
+  scale: 1.0;
+}
+.FixedMArgin{
+  margin-top: 1.5rem;  /* margin-top: 1.5rem; */
+}
+
+.Input {
+  padding-left: 2rem;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  border: none;
+  width: 100%;
+  height: 6rem;
+  outline: none;
+  color: #202020;
+}
+.ActiveLabel {
+  /* color: var(--primary-blue); */
+  color: #1492e6;
+}
+.ActiveError {
+  /* border: 2px solid var(--error); */
+  border: 2px solid #ff4d4f;
+}
+.ErrorMassage {
+  position: absolute;
+  bottom: -40%;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.002rem;
+  left: 1%;
+  color: #ff4d4f;
+}
+.ActiveErrorMassage {
+  color: var(--error);
+  color: #ff4d4f;
+}
+.InputIcon {
+  width: 2.5rem;
+  height: 2.2rem;
+  object-fit: contain;
+  object-position: center;
+}
+.Password_Img_Visible {
+  position: absolute;
+  right: 0.3%;
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.InputPasswordIcon {
+  /* position: absolute;
+  right: 0.3%; */
+  width: 2.5rem;
+  height: 2rem;
+  object-fit: contain;
+  object-position: center;
+  opacity: 80%;
+  cursor: pointer;
+  background-color: white;
+}
+/* **************MEDIA************* */
+
+@media only screen and (max-width: 550px) {
+  .Input_Img_Get_Box {
+    /* width: 95%; */
+  }
+}

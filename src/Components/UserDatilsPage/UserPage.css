@@ -1,0 +1,261 @@
+.User_Container {
+  display: flex;
+  /* align-items: flex-start; */
+  flex-direction: column;
+  background-color: #f8f8f8;
+  width: 100%;
+  /* gap: 2rem; */
+  max-height: 100%;
+  padding: 4.5rem 10rem;
+}
+
+/* Contact_Manager_First_Row CSS Start */
+.Contact_Manager_First_Row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.Second_Row_Sorting_Container_And_OpenModel {
+  display: flex;
+}
+.First_Row_Left,
+.First_Row_Right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.AppLogo {
+  width: 5.6rem;
+  height: 5.6rem;
+}
+.App_Name {
+  font-size: 3.7rem;
+  line-height: 4.9rem;
+  font-family: "Mulish-Medium";
+}
+.UserProfileLogo {
+  height: 8rem;
+  width: 8rem;
+}
+.First_Row_Right_Line {
+  height: 8rem;
+  border: 1px solid var(--primary-blue);
+}
+.SettingLogo {
+  width: 4rem;
+  height: 4rem;
+  animation: setting 2s ease-in-out;
+}
+@keyframes setting {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contact_Manager_First_Row CSS End */
+
+/* Contact_Manager_Second_Row CSS Start */
+.Contact_Manager_Second_Row {
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 7rem;
+  padding: 0.5rem;
+  margin-top: 6.5rem;
+  /* border: 1px solid ; */
+  /* margin-top: 7.5rem; */
+}
+.Second_Row_Search_Bar {
+  width: 84%;
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+}
+.SearchUserInput {
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 1.2rem;
+  width: 100%;
+  /* height: 6rem; */
+  /* padding: 1.7rem 0rem 1.7rem 6rem; */
+  font-size: 2rem;
+  line-height: 2.7rem;
+  font-family: "Mulish-Regular";
+}
+/* Second_Row  2 div Start  */
+.Second_Row_Sorting_Container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+  position: relative;
+  /* width: 21.2rem; */
+}
+
+.Second_Row_Sorting {
+  border-radius: 1.2rem;
+  width: 21.2rem;
+  height: 6rem;
+  padding: 1.7rem 0rem 1.7rem 1.5rem;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  font-family: "Mulish-Bold";
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+}
+
+.LogoUPDownContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 1.5rem 0rem;
+}
+
+.Sorting_Option_Container {
+  /* width: 21.2rem; */
+  width: 100%;
+  margin-top: 1rem;
+  /* height: 21.2rem; */
+  /* padding: 1.5rem 1.5rem;     */
+  border-radius: 1.2rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 6rem;
+  left: 0rem;
+  right: 0rem;
+  z-index: 10;
+}
+.Sorting_Option_Main {
+  /* width: 21.2rem; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 21.2rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+}
+.SortTing_Main_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Sort_Type {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  width: 100%;
+  height: 5.8rem;
+  margin: 0.7rem;
+  padding: 1.2rem 0rem 1.3rem 1.2rem;
+  font-size: 1.9rem;
+  line-height: 2rem;
+  border-radius: 1.2rem;
+  font-family: "Mulish-SemiBold";
+  color: var(--black);
+  background: rgb(239, 239, 239);
+}
+.Sort_Type:hover {
+  background: var(--primary-hover);
+  color: var(--secondary-white);
+}
+.activeSortBtn {
+  color: var(--secondary-white);
+  background: var(--primary-blue);
+}
+.activeSortBtn:hover {
+  background: var(--primary-hover);
+}
+/* Second_Row  2 div end  */
+/* Second_Row 3  div Start  */
+
+.Second_Row_Open_Model {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: white;
+  height: 6rem;
+  border-radius: 1.2rem;
+  margin-left: 1.5rem;
+}
+.UPDown,
+.AddUserLogo {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+/* Second_Row 3 div End  */
+
+/* Contact_Manager_Second_Row CSS End */
+.Responsive_Data_Outer_Container {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-width: 100%;
+  text-align: justify;
+  /* border: 2px solid red; */
+}
+
+.GerUserData_Calling_Point {
+  display: flex;
+  width: 32%;
+}
+@media only screen and (max-width: 1200px) {
+  .GerUserData_Calling_Point {
+    width: 31.5%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .GerUserData_Calling_Point {
+    width: 47.5%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .GerUserData_Calling_Point {
+    width: 99%;
+  }
+  .Contact_Manager_Second_Row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .Second_Row_Sorting_Container_And_OpenModel {
+    justify-content: space-between;
+  }
+  .Second_Row_Search_Bar {
+    width: 100%;
+  }
+  .Second_Row_Sorting {
+    width: 100%;
+  }
+  .Second_Row_Sorting_Container {
+    margin-left: 0rem;
+    width: 100%;
+  }
+  .Responsive_Data_Outer_Container {
+    margin-top: 9rem;
+  }
+  .User_Container {
+    padding: 4.5rem 6rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .User_Container {
+    padding: 4.5rem 4rem;
+  }
+}

@@ -1,0 +1,163 @@
+import React, { useEffect, useState } from "react";
+import "./Login.css";
+import InputTag from "../../Common/InputTAg/InputTag";
+import { Icon } from "../../Utility/IconPath";
+import PrimaryBtn from "../../Common/Button/PrimaryBtn/Primary";
+import BackImg from "../../Common/HomeImg/BackImg";
+import { useSigninMutation } from "../../Redux/api/login/login.api";
+import Cookies from "js-cookie";
+import { KEY_ACCESS_TOKEN } from "../../Utility/constants";
+import { useNavigate, useHistory } from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [hide, setHide] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // All seb props funcation
+
+  const [loginMutation, { data: loginMutationRes, isLoading }] =
+    useSigninMutation();
+
+  const endOnClick = () => {
+    setHide(!hide);
+  };
+
+  const onClickLogin = async () => {
+    try {
+      let hasError = false;
+      let EmailFormat = /\S+@\S+\.\S+/;
+
+      setEmailError("");
+      setPasswordError("");
+      setLoading(true);
+
+      if (email === "") {
+        setEmailError("Please enter your email");
+        hasError = true;
+      } else if (!EmailFormat.test(email)) {
+        setEmailError("Please enter an Valid email");
+        hasError = true;
+      }
+      if (password === "") {
+        setPasswordError("Please enter your password");
+        hasError = true;
+      }
+      if (hasError) {
+        return;
+      }
+
+      const payload = {
+        email: email,
+        password: password,
+      };
+      const loginMutationRes = await loginMutation(payload);
+      if (loginMutationRes.data) {
+        // Store Token in Cookies
+        Cookies.set(KEY_ACCESS_TOKEN, loginMutationRes.data.accessToken);
+        const AccessToken = Cookies.get("accessToken");
+        navigate("/user");
+      } else if (loginMutationRes.error) {
+      }
+
+      // Retrieve the access token when needed
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleEnterSubmitData = (e) => {
+      if (e.key === "Enter") {
+        onClickLogin();
+      }
+    };
+    document.addEventListener("keydown", handleEnterSubmitData);
+  }, [onClickLogin]);
+
+  return (
+    <>
+      <div className="Login_Page_container Login_And_Register_Page_container">
+        <div className="Home_Page_Left_Container ">
+          <BackImg />
+        </div>
+        <div className="Login_Page_Right_container Login_And_Register_Page_Right_container">
+          <div className="Login_Page_Main_container Login_And_Register_Page_Main_container">
+            <div className="Login_Page_Top_container Login_Register_Top_container_Heading_Title">
+              <div className="Login_Main_Heading Common_Login_Register_Heading">
+                Welcome
+              </div>
+              <div className="Login_Main_Text Common_Login_Register_Text">
+                Simplify Your Contacts, Amplify Your Network – Join our
+                Registration and Experience Seamless Organization.
+              </div>
+            </div>
+            <div className="Input_Login_Data Input_Login_Register_Data">
+              <div className="Input_Div">
+                <InputTag
+                  marginTop={false}
+                  error={emailError}
+                  LabelText={"Email"}
+                  Type={"email"}
+                  Name={"Email"}
+                  placeholderText={"Example@email.com"}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  startIcon={Icon.Email_Logo}
+                  endIcon={emailError !== "" ? Icon.ErrorInput_Logo : ""}
+                />
+              </div>
+              <div className="Input_Div">
+                <InputTag
+                  marginTop={false}
+                  error={passwordError}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  LabelText={"Password"}
+                  Type={hide ? "password" : "text"}
+                  Name={"Password"}
+                  placeholderText={"Enter your password"}
+                  startIcon={Icon.Password_Logo}
+                  endIcon={
+                    passwordError == ""
+                      ? hide
+                        ? Icon.Hide_Logo
+                        : Icon.UnPassword_Logo
+                      : Icon.ErrorInput_Logo
+                  }
+                  endOnClick={endOnClick}
+                  ErrorMassage={"Please enter your Password"}
+                />
+              </div>
+              <div className="Input_Div">
+                <PrimaryBtn
+                  LRBText={"LOGIN"}
+                  LRText={"Create a new account"}
+                  NavTargetLog={"/register"}
+                  LRTextType={"Register"}
+                  NavTarget={
+                    loginMutationRes?.data?.accessToken ? "" : "/register"
+                  }
+                  fetching={loading}
+                  onClick={onClickLogin}
+                  isSecondary={false}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Login;

@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Mulish-Bold";
+  src: url("../Assets/Fonts/Mulish-Bold.ttf") format("Truetype");
+}
+@font-face {
+  font-family: "Mulish-Medium";
+  src: url("../Assets/Fonts/Mulish-Medium.ttf") format("Truetype");
+}
+@font-face {
+  font-family: "Mulish-Regular";
+  src: url("../Assets/Fonts/Mulish-Regular.ttf") format("Truetype");
+}
+@font-face {
+  font-family: "Mulish-SemiBold";
+  src: url("../Assets/Fonts/Mulish-SemiBold.ttf") format("Truetype");
+}
