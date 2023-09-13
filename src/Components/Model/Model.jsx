@@ -26,7 +26,7 @@ const Model = ({ closeModel, children, ModelType, visible }) => {
   if (!visible) return null;
 
   return createPortal(
-    <div className="Model_Container_Main ">
+    <div className="Model_Container_Main">
       <div onClick={closeModel} className="modalOuterDiv"></div>
       <div className="Model_Container ">
         <div className="Model_Top_Row">
@@ -41,7 +41,6 @@ const Model = ({ closeModel, children, ModelType, visible }) => {
           </div>
         </div>
         {children}
-        {/* <div className="Model_User_Data_Container">{children}</div> */}
         <div />
       </div>
     </div>,

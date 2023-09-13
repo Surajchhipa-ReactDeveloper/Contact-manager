@@ -9,9 +9,12 @@ import { KEY_ACCESS_TOKEN } from "../../Utility/constants";
 import Cookies from "js-cookie";
 import { header } from "../../Redux/header";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
   const [showModel, setShowModel] = useState(false); //Model Open and Close
-  const [selectedFileName, setSelectedFileName] = useState(); // File Upload
+  const [selectedFileName, setSelectedFileName] = useState(null); // File Upload
   const [selectedImage, setSelectedImage] = useState(null);
   // Input State All
   const [name, setName] = useState("");
@@ -42,6 +45,12 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
     setPhone(DataUpdate?.phone);
     setSelectedImage(DataUpdate?.contact_profile);
   };
+  useEffect(() => {
+    if (userId) {
+      HandleSetData();
+    }
+    setUserId(DataUpdate?._id);
+  }, [userId, onSave]);
 
   // Check For Fill Input Properties Start
   const onClickCreateUser = async () => {
@@ -66,7 +75,6 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
       } else {
         setEmailError("");
       }
-
       if (phone === "") {
         setPhoneError("Please enter a phone number");
         HasError = true;
@@ -77,20 +85,17 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
         return;
       }
       const Data = new FormData();
-      const updatedData = new FormData();
       const authorizationToken = Cookies.get(KEY_ACCESS_TOKEN);
-      if (ApiUrl) {
-        Data.append("name", name);
-        Data.append("email", email);
-        Data.append("phone", phone);
-        Data.append("contact_profile", selectedFileName);
-      }
-      if (ApiUrl.userId) {
-        updatedData.append("name", name);
-        updatedData.append("email", email);
-        updatedData.append("phone", phone);
-        updatedData.append("contact_profile", selectedFileName);
-      }
+
+      Data.append("name", name);
+      Data.append("email", email);
+      Data.append("phone", phone);
+      Data.append("contact_profile", selectedFileName);
+
+      const UpdateData = new FormData();
+      UpdateData.append("name", name);
+      UpdateData.append("email", email);
+      UpdateData.append("phone", phone);
 
       const Header = {
         Authorization: `Bearer ${authorizationToken}`,
@@ -98,17 +103,43 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
       };
 
       const response = userId
-        ? await axios.put(ApiUrl, updatedData, {
-            headers: Header,
-          })
+        ? await axios.put(
+            ApiUrl,
+            selectedFileName === null ? UpdateData : Data,
+            {
+              headers: Header,
+            }
+          )
         : await axios.post(ApiUrl, Data, {
             headers: Header,
-          });
+        });
+      
+      
+      toast.success("User Create ", {
+        position: "top-right",
+        autoClose: 4967,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
 
       window.location.reload();
+
       // UserUpdate;
     } catch (error) {
-      alert(error);
+      toast.error("Error", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -121,13 +152,6 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
     document.addEventListener("keydown", onClickEnter);
   }, [onClickCreateUser]);
 
-  useEffect(() => {
-    if (userId) {
-      HandleSetData();
-    }
-    setUserId(DataUpdate?._id);
-  }, [userId, onSave]);
-
   return (
     <div className="Create_User_Container">
       <div className="Create_User_Main ">
@@ -137,6 +161,7 @@ const CreateUser = ({ onSave, DataUpdate, UserUpdate }) => {
               src={selectedImage}
               alt="SelectedUserImage"
               className="Add_User_Icon"
+              onClick={handleButtonClick}
             />
           ) : (
             <img

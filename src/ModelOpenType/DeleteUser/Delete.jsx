@@ -6,6 +6,7 @@ import { Icon } from "../../Utility/IconPath";
 import axios from "axios";
 import { KEY_ACCESS_TOKEN } from "../../Utility/constants";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 const DeleteContact = ({ DataDelete, UserUpdate, onSave }) => {
   const [showModelDelete, setShowModelDelete] = useState(true); //Model Open and Close
@@ -40,6 +41,17 @@ const DeleteContact = ({ DataDelete, UserUpdate, onSave }) => {
           },
         }
       );
+      toast.success("Delete User", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
       window.location.reload();
     } catch (error) {
       alert(error);

@@ -4,7 +4,9 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./Components/LoginPage/Login";
 import Register from "./Components/RegisterPage/Register";
 import UserPage from "./Components/UserDatilsPage/UserPage";
-import INter from "./INterTask/INter";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <>
@@ -16,9 +18,8 @@ const App = () => {
             <Route path="/user" name="User" element={<UserPage />} />
           </Routes>
         </Suspense>
+        <ToastContainer />
       </Router>
-      {/* <HomePage /> */}
-      {/* <INter /> */}
     </>
   );
 };

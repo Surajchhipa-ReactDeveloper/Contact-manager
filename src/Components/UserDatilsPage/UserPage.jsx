@@ -62,12 +62,12 @@ const UserPage = () => {
     setShowModel(true);
   };
 
-  useEffect(() => {
-    const GetCookies = Cookies.get(KEY_ACCESS_TOKEN);
-    if (!GetCookies) {
-      UserNavigate("/");
-    }
-  });
+  // useEffect(() => {
+  //   const GetCookies = Cookies.get(KEY_ACCESS_TOKEN);
+  //   if (!GetCookies) {
+  //     UserNavigate("/");
+  //   }
+  // });
 
   // useEffect(() => {
   //   const HandleCloseModel = {

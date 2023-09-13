@@ -8,6 +8,8 @@ import { useSigninMutation } from "../../Redux/api/login/login.api";
 import Cookies from "js-cookie";
 import { KEY_ACCESS_TOKEN } from "../../Utility/constants";
 import { useNavigate, useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -61,13 +63,24 @@ const Login = () => {
         Cookies.set(KEY_ACCESS_TOKEN, loginMutationRes.data.accessToken);
         const AccessToken = Cookies.get("accessToken");
         navigate("/user");
+
+     toast.success("🦄 Wow so easy!", {
+       position: "top-right",
+       autoClose: 4967,
+       hideProgressBar: false,
+       closeOnClick: true,
+       pauseOnHover: true,
+       draggable: true,
+       progress: undefined,
+       theme: "light",
+     });
       } else if (loginMutationRes.error) {
       }
 
       // Retrieve the access token when needed
     } catch (error) {
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
